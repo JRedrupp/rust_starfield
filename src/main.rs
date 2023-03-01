@@ -5,8 +5,8 @@ use speedy2d::color::Color;
 mod star;
 
 
-const WINDOW_HEIGHT: u32 = 480;
-const WINDOW_WIDTH: u32 = 640;
+const DEFAULT_WINDOW_HEIGHT: u32 = 480;
+const DEFAULT_WINDOW_WIDTH: u32 = 640;
 
 struct MyWindowHandler {
     star_field: star::StarField,
@@ -16,7 +16,7 @@ struct MyWindowHandler {
 impl MyWindowHandler {
     fn new() -> Self {
         MyWindowHandler {
-            star_field: star::StarField::new(100, WINDOW_WIDTH as f32, WINDOW_HEIGHT as f32),
+            star_field: star::StarField::new(100, DEFAULT_ as f32, DEFAULT_WINDOW_HEIGHT as f32),
             velocity_multiplier: 1.0,
         }
     }
@@ -63,6 +63,6 @@ impl WindowHandler for MyWindowHandler
 
 
 fn main() {
-    let window = Window::new_centered("Starfield", (WINDOW_WIDTH, WINDOW_HEIGHT)).unwrap();
+    let window = Window::new_centered("Starfield", (DEFAULT_, DEFAULT_WINDOW_HEIGHT)).unwrap();
     window.run_loop(MyWindowHandler::new())
 }
